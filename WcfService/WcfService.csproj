@@ -44,6 +44,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="GZipEncoder, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\GZipEncoder.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
@@ -73,6 +77,8 @@
     <None Include="js\jquery\jquery-1.11.0-vsdoc.js" />
     <Content Include="js\jquery\jquery-1.11.0.js" />
     <Content Include="js\jquery\jquery-1.11.0.min.js" />
+    <Content Include="MemberGenServ.svc" />
+    <Content Include="MemberTrackServ.svc" />
     <Content Include="style\bootstrap\bootstrap-theme.css" />
     <Content Include="style\bootstrap\bootstrap-theme.min.css" />
     <Content Include="style\bootstrap\bootstrap.css" />
@@ -102,7 +108,9 @@
     </Compile>
     <Compile Include="IAutoKeyWordServ.cs" />
     <Compile Include="IMemberContactServ.cs" />
+    <Compile Include="IMemberGenServ.cs" />
     <Compile Include="IMemberServ.cs" />
+    <Compile Include="IMemberTrackServ.cs" />
     <Compile Include="INewsBaseServ.cs" />
     <Compile Include="ISmsClassServ.cs" />
     <Compile Include="IVCommonProductServ.cs" />
@@ -110,8 +118,14 @@
     <Compile Include="MemberContactServ.svc.cs">
       <DependentUpon>MemberContactServ.svc</DependentUpon>
     </Compile>
+    <Compile Include="MemberGenServ.svc.cs">
+      <DependentUpon>MemberGenServ.svc</DependentUpon>
+    </Compile>
     <Compile Include="MemberServ.svc.cs">
       <DependentUpon>MemberServ.svc</DependentUpon>
+    </Compile>
+    <Compile Include="MemberTrackServ.svc.cs">
+      <DependentUpon>MemberTrackServ.svc</DependentUpon>
     </Compile>
     <Compile Include="NewsBaseServ.svc.cs">
       <DependentUpon>NewsBaseServ.svc</DependentUpon>

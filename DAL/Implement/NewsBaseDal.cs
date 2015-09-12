@@ -34,25 +34,22 @@ namespace DAL.Implement
             if (string.IsNullOrEmpty(type))
             { type = "_all";}
             QueryContainer matchQuery = new MatchQuery() { Field = type, Query = keyword,Operator=Operator.And };
+            QueryContainer pcQuery = new HasChildQuery() { Query = matchQuery, Type = type };
             //QueryContainer querystring = new QueryStringQuery() { Query = keyword, DefaultOperator = Operator.And };
             var searchResults = Connect.GetSearchClient().Search<NewsBase>(s => s
                 .Index(indexname)
                 .Type(typename)
-                .Query(matchQuery)
+                .Query(pcQuery)
+                .FielddataFields(ff=>ff.Newsid)
+                //.Fields("newsid")
                 .Sort(st => st.OnField(f => f.Newsid).Order(SortOrder.Descending))  /*按ID排序，id为数字，排序正常*/
                 .From(start)
                 .Size(size)
-                //.FacetRange<DateTime>(t => t
-                //    .OnField(f => f.Createon)
-                //    .Ranges(
-                //        r => r.From(new DateTime(2014, 1, 1).ToLocalTime())
-                //    )
-                //)
-            //.Highlight(h => h
-            //     .OnFields(f => f
-            //        .OnField("*")
-            //        .PreTags("<b style='color:red'>")
-            //        .PostTags("</b>")))
+                //.Highlight(h => h
+                //     .OnFields(f => f
+                //        .OnField("*")
+                //        .PreTags("<b style='color:red'>")
+                //        .PostTags("</b>")))
             );
             List<NewsBase> eslist = new List<NewsBase>(searchResults.Documents);
             return eslist;
@@ -75,6 +72,8 @@ namespace DAL.Implement
         public int GetCount(string keyword,string type )
         {
             int count = 0;
+
+           
             string indexname = ConfigurationManager.AppSettings["IndexName"].ToString();
             string typename = ConfigurationManager.AppSettings["TypeName"].ToString();
             if (string.IsNullOrEmpty(type))

@@ -59,6 +59,8 @@
     <Compile Include="Implement\KeyWordsDal.cs" />
     <Compile Include="Implement\MemberContactDal.cs" />
     <Compile Include="Implement\MemberDal.cs" />
+    <Compile Include="Implement\MemberGenDal.cs" />
+    <Compile Include="Implement\MemberTrackDal.cs" />
     <Compile Include="Implement\NewsBaseDal.cs" />
     <Compile Include="Implement\SmsClassDal.cs" />
     <Compile Include="Implement\URLNameDal.cs" />
@@ -67,6 +69,8 @@
     <Compile Include="Interface\IKeyWordsDal.cs" />
     <Compile Include="Interface\IMemberContactDal.cs" />
     <Compile Include="Interface\IMemberDal.cs" />
+    <Compile Include="Interface\IMemberGenDal.cs" />
+    <Compile Include="Interface\IMemberTrackDal.cs" />
     <Compile Include="Interface\INewsBaseDal.cs" />
     <Compile Include="Interface\ISmsClassDal.cs" />
     <Compile Include="Interface\IURLNameDal.cs" />
