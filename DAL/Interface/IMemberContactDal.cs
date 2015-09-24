@@ -17,13 +17,13 @@ namespace DAL.Interface
         /// <param name="size"></param>
         /// <returns></returns>
         List<MemberContact> GetList(string keyword, int start, int size);
-        List<MemberContact> GetList(string keyword, string type, int start, int size);
+        List<MemberContact> GetList(string keyword, string field, int start, int size);
         /// <summary>
         /// 获取总数
         /// </summary>
         /// <param name="keyword"></param>
         /// <returns></returns>
         int GetCount(string keyword);
-        int GetCount(string keyword, string type);
+        int GetCount(string keyword, string field);
     }
 }

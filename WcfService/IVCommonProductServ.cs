@@ -15,10 +15,10 @@ namespace WcfService
         [OperationContract(Name = "GetList")]
         List<VCommonProduct> GetList(string keyword, int start, int size);
         [OperationContract(Name = "GetListWithType")]
-        List<VCommonProduct> GetList(string keyword, string type, int start, int size);
+        List<VCommonProduct> GetList(string keyword, string field, int start, int size);
         [OperationContract(Name = "GetCount")]
         int GetCount(string keyword);
         [OperationContract(Name = "GetCountWithType")]
-        int GetCount(string keyword, string type);
+        int GetCount(string keyword, string field);
     }
 }

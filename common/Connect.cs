@@ -24,6 +24,7 @@ namespace common
             var settings = new ConnectionSettings(connectionPool);
             var client = new ElasticClient(settings);
             return client;
-        }        
+        }
+        
     }
 }

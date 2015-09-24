@@ -76,7 +76,8 @@ namespace WebApp
                 string urlParams = string.Empty;
                 url = Request.Url.AbsoluteUri;
                 string webn = Request.Url.AbsolutePath;
-                url = url.Replace(webn,"/");
+                url = url.Replace(webn, "/zbeic/");
+                //url = url.Replace(webn, "/");
                 baseUrl = url.Split('?').Length > 1 ? url.Substring(0, url.IndexOf('?')) : url;
                 urlParams = url.Split('?').Length > 1 ? url.Substring(url.IndexOf('?') + 1) : "";
                 if (url.Split('?').Length > 0 && url.Split('?').Length < 3)

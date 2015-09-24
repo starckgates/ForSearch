@@ -12,8 +12,11 @@ namespace WcfService
     [ServiceContract]
     public interface INewsBaseServ
     {
-        [OperationContract]
+        [OperationContract(Name = "GetList")]
         List<NewsBase> GetList(string keyword, int start, int size);
+        [OperationContract(Name = "GetContent")]
+        List<NewsBase> GetList(string keyword,string field, int start, int size);
+
         [OperationContract]
         int GetCount(string keyword);
 

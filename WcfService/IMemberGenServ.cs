@@ -16,16 +16,16 @@ namespace WcfService
         /// 获取列表
         /// </summary>
         /// <param name="keyword">关键字</param>
-        /// <param name="type">类型：Enterprise,Products,Memo,Address,AdminName,WebName</param>
+        /// <param name="field">类型：Enterprise,Products,Memo,Address,AdminName,WebName</param>
         /// <param name="start">开始位置</param>
         /// <param name="size">条数</param>
         /// <returns></returns>
-        IEnumerable<string> GetIDs(string keyword, string type, int start, int size);
+        IEnumerable<string> GetIDs(string keyword, string field, int start, int size);
 
         [OperationContract(Name = "GetIDsNoType")]
         IEnumerable<string> GetIDs(string keyword, int start, int size);
         [OperationContract]
-        byte[] GetIDsM(string keyword, string type, int start, int size);
+        byte[] GetIDsM(string keyword, string field, int start, int size);
 
         [OperationContract]
         /// <summary>
@@ -34,6 +34,6 @@ namespace WcfService
         /// <param name="keyword">关键字</param>
         /// <param name="type">类型：Enterprise,Products,Memo,Address,AdminName,WebName</param>
         /// <returns></returns>
-        int GetCount(string keyword, string type);
+        int GetCount(string keyword, string field);
     }
 }

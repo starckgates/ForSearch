@@ -17,25 +17,41 @@ namespace WcfService
         /// 获取列表
         /// </summary>
         /// <param name="keyword">关键字</param>
-        /// <param name="type">类型：Enterprise,Products,Memo,Address,AdminName,WebName</param>
+        /// <param name="field">类型：Enterprise,Products,Memo,Address,AdminName,WebName</param>
         /// <param name="start">开始位置</param>
         /// <param name="size">条数</param>
         /// <returns></returns>
-        List<Member> GetList(string keyword, string type, int start, int size);
+        List<Member> GetList(string keyword, string field, int start, int size);
 
         [OperationContract]
-        List<Member> GetListByPrefix(string keyword, string type, int start, int size);
+        List<Member> GetListByPrefix(string keyword, string field, int start, int size);
+
+        [OperationContract(Name = "GetListByTrack")]
+        List<Member> GetListByTrack(string keyword, string field, int start, int size, string country, string province, string city, string address, string memo, string classx, string trackType, string afterSales, out int em);
+
+        [OperationContract(Name = "GetJsonByTrack")]
+        string GetListByTrack(DAL.Implement.MemberDal.SearchCondition sc, out int em);
+
+        [OperationContract(Name = "GetJsonByChild")]
+        string GetList(DAL.Implement.MemberDal.SearchCondition sc, out int em);
 
         [OperationContract]
         /// <summary>
         /// 获取总数
         /// </summary>
         /// <param name="keyword">关键字</param>
-        /// <param name="type">类型：Enterprise,Products,Memo,Address,AdminName,WebName</param>
+        /// <param name="field">类型：Enterprise,Products,Memo,Address,AdminName,WebName</param>
         /// <returns></returns>
-        int GetCount(string keyword, string type);
+        int GetCount(string keyword, string field);
 
         [OperationContract]
-        int GetCountByPrefix(string keyword, string type);
+        int GetCountByPrefix(string keyword, string field);
+        [OperationContract(Name = "GetCountByChild")]
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sc"></param>
+        /// <returns></returns>
+        int GetCount(DAL.Implement.MemberDal.SearchCondition sc);
     }
 }

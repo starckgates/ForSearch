@@ -42,13 +42,14 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\NEST.1.7.0\lib\net45\Nest.dll</HintPath>
     </Reference>
-    <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
+    <Reference Include="Newtonsoft.Json, Version=7.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.7.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -60,20 +61,22 @@
     <Compile Include="Implement\MemberContactDal.cs" />
     <Compile Include="Implement\MemberDal.cs" />
     <Compile Include="Implement\MemberGenDal.cs" />
-    <Compile Include="Implement\MemberTrackDal.cs" />
+    <Compile Include="Implement\MemberByTrackDal.cs" />
     <Compile Include="Implement\NewsBaseDal.cs" />
     <Compile Include="Implement\SmsClassDal.cs" />
     <Compile Include="Implement\URLNameDal.cs" />
+    <Compile Include="Implement\UserTracksDal.cs" />
     <Compile Include="Implement\VCommonProductDal.cs" />
     <Compile Include="Implement\VSmsClassDal.cs" />
     <Compile Include="Interface\IKeyWordsDal.cs" />
     <Compile Include="Interface\IMemberContactDal.cs" />
     <Compile Include="Interface\IMemberDal.cs" />
     <Compile Include="Interface\IMemberGenDal.cs" />
-    <Compile Include="Interface\IMemberTrackDal.cs" />
+    <Compile Include="Interface\IMemberByTrackDal.cs" />
     <Compile Include="Interface\INewsBaseDal.cs" />
     <Compile Include="Interface\ISmsClassDal.cs" />
     <Compile Include="Interface\IURLNameDal.cs" />
+    <Compile Include="Interface\IUserTracksDal.cs" />
     <Compile Include="Interface\IVCommonProductDal.cs" />
     <Compile Include="Interface\IVSmsClassDal.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -87,6 +90,9 @@
       <Project>{885fb090-87ff-411e-aece-3887e48f182b}</Project>
       <Name>Model</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

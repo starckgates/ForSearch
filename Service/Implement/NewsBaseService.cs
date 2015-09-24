@@ -26,9 +26,9 @@ namespace Service.Implement
             return _dal.GetList(keyword,start,size);
         }
 
-        public List<NewsBase> GetList(string keyword,string type, int start, int size)
+        public List<NewsBase> GetList(string keyword,string field, int start, int size)
         {
-            return _dal.GetList(keyword,type, start, size);
+            return _dal.GetList(keyword, field, start, size);
         }
         /// <summary>
         /// 通过关键字获取总数
@@ -40,9 +40,9 @@ namespace Service.Implement
             return _dal.GetCount(keyword);
         }
 
-        public int GetCount(string keyword,string type)
+        public int GetCount(string keyword,string field)
         {
-            return _dal.GetCount(keyword, type);
+            return _dal.GetCount(keyword, field);
         }
 
     }

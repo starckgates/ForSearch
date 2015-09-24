@@ -15,10 +15,10 @@ namespace WcfService
         [OperationContract(Name = "GetList")]
         List<VSmsClass> GetList(string keyword, int start, int size);
         [OperationContract(Name = "GetListWithType")]
-        List<VSmsClass> GetList(string keyword, string type, int start, int size);
+        List<VSmsClass> GetList(string keyword, string field, int start, int size);
         [OperationContract(Name = "GetCount")]
         int GetCount(string keyword);
         [OperationContract(Name = "GetCountWithType")]
-        int GetCount(string keyword, string type);
+        int GetCount(string keyword, string field);
     }
 }

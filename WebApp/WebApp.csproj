@@ -28,6 +28,7 @@
     <SccLocalPath>SAK</SccLocalPath>
     <SccAuxPath>SAK</SccAuxPath>
     <SccProvider>SAK</SccProvider>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -64,6 +65,7 @@
       <HintPath>..\packages\Newtonsoft.Json.7.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Net.Http.Formatting, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.3\lib\net45\System.Net.Http.Formatting.dll</HintPath>
@@ -77,8 +79,6 @@
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
-    <Reference Include="System.Core" />
-    <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Web.Http, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.3\lib\net45\System.Web.Http.dll</HintPath>
@@ -88,29 +88,35 @@
       <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.2.3\lib\net45\System.Web.Http.WebHost.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Web" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Web.Services" />
     <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="admin\Default.aspx" />
     <Content Include="ascx\memPager.ascx" />
     <Content Include="ascx\pager.ascx" />
     <Content Include="Content.aspx" />
     <Content Include="crm\Member.aspx" />
     <Content Include="Default.aspx" />
     <Content Include="dict\Default.aspx" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="img\button_bg.png" />
     <Content Include="img\logo.jpg" />
     <Content Include="img\search-icon.png" />
     <Content Include="js\baiduAutoComplete.js" />
+    <Content Include="js\bootstrap.js" />
+    <Content Include="js\bootstrap.min.js" />
     <Content Include="js\highlight.js" />
     <Content Include="js\jquery-1.11.3.min.js" />
     <Content Include="js\jquery-ui.js" />
     <Content Include="js\jquery.ui.autocomplete.html.js" />
+    <Content Include="js\npm.js" />
+    <Content Include="Login.aspx" />
     <Content Include="Member.aspx" />
     <Content Include="news\Content.aspx" />
     <Content Include="news\Default.aspx" />
@@ -124,6 +130,10 @@
     <Content Include="dict\updict.dic" />
     <Content Include="dict\sougou.dic" />
     <Content Include="Properties\DataSources\Model.VSmsClass.datasource" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
     <None Include="Properties\PublishProfiles\Web.pubxml" />
     <None Include="Service References\AutoKeyWordServ\AutoKeyWordServ.wsdl" />
     <None Include="Service References\AutoKeyWordServ\AutoKeyWordServ.xsd">
@@ -166,6 +176,8 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="Service References\VSmsClassServ\VSmsClassServ.wsdl" />
+    <Content Include="style\bootstrap-theme.css.map" />
+    <Content Include="style\bootstrap.css.map" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -204,15 +216,30 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
+    <Content Include="style\bootstrap-theme.css" />
+    <Content Include="style\bootstrap-theme.min.css" />
+    <Content Include="style\bootstrap.css" />
+    <Content Include="style\bootstrap.min.css" />
+    <Content Include="style\dashboard.css" />
     <Content Include="style\jquery-ui.css" />
     <Content Include="style\jquery-ui.theme.css" />
     <Content Include="style\member.css" />
     <Content Include="style\page.css" />
+    <Content Include="style\signin.css" />
     <Content Include="test.aspx" />
     <Content Include="WcfTest.aspx" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="admin\Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
     <Compile Include="ascx\memPager.ascx.cs">
       <DependentUpon>memPager.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -257,6 +284,13 @@
     </Compile>
     <Compile Include="dict\Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
     <Compile Include="Member.aspx.cs">
       <DependentUpon>Member.aspx</DependentUpon>

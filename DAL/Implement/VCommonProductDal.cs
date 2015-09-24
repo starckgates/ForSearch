@@ -16,7 +16,7 @@ namespace DAL.Implement
         public int GetCount(string keyword)
         {
             int count = 0;
-            string indexname = ConfigurationManager.AppSettings["CRMIndex"].ToString();
+            string indexname = ConfigurationManager.AppSettings["CRMIndexV"].ToString();
             string typename = ConfigurationManager.AppSettings["VCProductType"].ToString();
             QueryContainer query = new QueryStringQuery() { Query = keyword, DefaultOperator = Operator.Or };
             //调用仅取数量方法
@@ -29,12 +29,12 @@ namespace DAL.Implement
             return count;
         }
 
-        public int GetCount(string keyword, string type)
+        public int GetCount(string keyword, string field)
         {
             int count = 0;
-            string indexname = ConfigurationManager.AppSettings["CRMIndex"].ToString();
+            string indexname = ConfigurationManager.AppSettings["CRMIndexV"].ToString();
             string typename = ConfigurationManager.AppSettings["VCProductType"].ToString();
-            QueryContainer query = new QueryStringQuery() { Query = keyword, DefaultOperator = Operator.Or, DefaultField = type };
+            QueryContainer query = new QueryStringQuery() { Query = keyword, DefaultOperator = Operator.Or, DefaultField = field };
             //调用仅取数量方法
             var counts = Connect.GetSearchClient().Count<VCommonProduct>(s => s
                 .Index(indexname)
@@ -47,7 +47,7 @@ namespace DAL.Implement
 
         public List<VCommonProduct> GetList(string keyword, int start, int size)
         {
-            string indexname = ConfigurationManager.AppSettings["CRMIndex"].ToString();
+            string indexname = ConfigurationManager.AppSettings["CRMIndexV"].ToString();
             string typename = ConfigurationManager.AppSettings["VCProductType"].ToString();
             QueryContainer query = new QueryStringQuery() { Query = keyword, DefaultOperator = Operator.Or };
             var searchResults = Connect.GetSearchClient().Search<VCommonProduct>(s => s
@@ -61,11 +61,11 @@ namespace DAL.Implement
             return eslist;
         }
 
-        public List<VCommonProduct> GetList(string keyword, string type, int start, int size)
+        public List<VCommonProduct> GetList(string keyword, string field, int start, int size)
         {
-            string indexname = ConfigurationManager.AppSettings["CRMIndex"].ToString();
+            string indexname = ConfigurationManager.AppSettings["CRMIndexV"].ToString();
             string typename = ConfigurationManager.AppSettings["VCProductType"].ToString();
-            QueryContainer query = new QueryStringQuery() { Query = keyword, DefaultOperator = Operator.Or, DefaultField = type };
+            QueryContainer query = new QueryStringQuery() { Query = keyword, DefaultOperator = Operator.Or, DefaultField = field };
             var searchResults = Connect.GetSearchClient().Search<VCommonProduct>(s => s
                 .Index(indexname)
                 .Type(typename)

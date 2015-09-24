@@ -17,7 +17,7 @@ namespace DAL.Implement
         public List<MemberContact> GetList(string keyword, int start, int size)
         {
             string indexname = ConfigurationManager.AppSettings["CRMIndex"].ToString();
-            string typename = ConfigurationManager.AppSettings["CRMMCType"].ToString();
+            string typename = ConfigurationManager.AppSettings["CRMMenberContactType"].ToString();
             var searchResults = Connect.GetSearchClient().Search<MemberContact>(s => s
                 .Index(indexname)
                 .Type(typename)
@@ -30,15 +30,19 @@ namespace DAL.Implement
             return eslist;
         }
 
-        public List<MemberContact> GetList(string keyword, string type, int start, int size)
+        public List<MemberContact> GetList(string keyword, string field, int start, int size)
         {
             string indexname = ConfigurationManager.AppSettings["CRMIndex"].ToString();
-            string typename = ConfigurationManager.AppSettings["CRMMCType"].ToString();
-            QueryContainer prefixQuery = new PrefixQuery() { Field = type, Value = keyword };
+            string typename = ConfigurationManager.AppSettings["CRMMenberContactType"].ToString();
+            if (string.IsNullOrEmpty(field))
+            { field = "_all"; }
+            else { field = field.ToLower(); }
+            //QueryContainer prefixQuery = new PrefixQuery() { Field = field, Value = keyword };
+            QueryContainer matchQuery = new MatchQuery() { Field = field, Query = keyword, Operator = Operator.And };
             var searchResults = Connect.GetSearchClient().Search<MemberContact>(s => s
                 .Index(indexname)
                 .Type(typename)
-                .Query(prefixQuery)
+                .Query(matchQuery)
                 .From(start)
                 .Size(size)
             );
@@ -50,7 +54,7 @@ namespace DAL.Implement
         {
             int count = 0;
             string indexname = ConfigurationManager.AppSettings["CRMIndex"].ToString();
-            string typename = ConfigurationManager.AppSettings["CRMMCType"].ToString();
+            string typename = ConfigurationManager.AppSettings["CRMMenberContactType"].ToString();
             //调用仅取数量方法
             var counts = Connect.GetSearchClient().Count<MemberContact>(s => s
                 .Index(indexname)
@@ -61,17 +65,21 @@ namespace DAL.Implement
             return count;
         }
 
-        public int GetCount(string keyword, string type)
+        public int GetCount(string keyword, string field)
         {
             int count = 0;
             string indexname = ConfigurationManager.AppSettings["CRMIndex"].ToString();
-            string typename = ConfigurationManager.AppSettings["CRMMCType"].ToString();
-            QueryContainer prefixQuery = new PrefixQuery() { Field = type, Value = keyword };
+            string typename = ConfigurationManager.AppSettings["CRMMenberContactType"].ToString();
+            if (string.IsNullOrEmpty(field))
+            { field = "_all"; }
+            else { field = field.ToLower(); }
+            //QueryContainer prefixQuery = new PrefixQuery() { Field = field, Value = keyword };
+            QueryContainer matchQuery = new MatchQuery() { Field = field, Query = keyword, Operator = Operator.And };
             //调用仅取数量方法
             var counts = Connect.GetSearchClient().Count<MemberContact>(s => s
                 .Index(indexname)
                 .Type(typename)
-                .Query(prefixQuery)
+                .Query(matchQuery)
             );
             count = (int)counts.Count;
             return count;

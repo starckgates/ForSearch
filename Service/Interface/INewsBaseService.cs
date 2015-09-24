@@ -18,7 +18,7 @@ namespace Service.Interface
         /// <returns></returns>
         List<NewsBase> GetList(string keyword, int start, int size);
 
-        List<NewsBase> GetList(string keyword,string type, int start, int size);
+        List<NewsBase> GetList(string keyword,string field, int start, int size);
 
         /// <summary>
         /// 获取总数
@@ -27,6 +27,6 @@ namespace Service.Interface
         /// <returns></returns>
         int GetCount(string keyword);
 
-        int GetCount(string keyword, string type);
+        int GetCount(string keyword, string field);
     }
 }

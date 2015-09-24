@@ -20,13 +20,13 @@ namespace WcfService
         /// 获取列表
         /// </summary>
         /// <param name="keyword"></param>
-        /// <param name="type">类型：ID,MemberID,Linkman,Phone,Fax,Mobile,Email</param>
+        /// <param name="field">类型：ID,MemberID,Linkman,Phone,Fax,Mobile,Email</param>
         /// <param name="start"></param>
         /// <param name="size"></param>
         /// <returns></returns>
-        public List<MemberContact> GetList(string keyword, string type, int start, int size)
+        public List<MemberContact> GetList(string keyword, string field, int start, int size)
         {
-            return _dal.GetList(keyword, type, start, size);
+            return _dal.GetList(keyword, field, start, size);
         }
         /// <summary>
         /// 获取总数
@@ -34,9 +34,9 @@ namespace WcfService
         /// <param name="keyword">关键字</param>
         /// <param name="type">类型：ID,MemberID,Linkman,Phone,Fax,Mobile,Email</param>
         /// <returns></returns>
-        public int GetCount(string keyword, string type)
+        public int GetCount(string keyword, string field)
         {
-            return _dal.GetCount(keyword, type);
+            return _dal.GetCount(keyword, field);
         }
     }
 }

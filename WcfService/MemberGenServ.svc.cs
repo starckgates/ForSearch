@@ -18,22 +18,22 @@ namespace WcfService
         /// 获取列表
         /// </summary>
         /// <param name="keyword"></param>
-        /// <param name="type">类型：Enterprise,Products,Memo,Address,AdminName,WebName</param>
+        /// <param name="field">类型：Enterprise,Products,Memo,Address,AdminName,WebName</param>
         /// <param name="start"></param>
         /// <param name="size"></param>
         /// <returns></returns>
-        public IEnumerable<string> GetIDs(string keyword, string type, int start, int size)
+        public IEnumerable<string> GetIDs(string keyword, string field, int start, int size)
         {
-            return _dal.GetIDs(keyword, type, start, size);
+            return _dal.GetIDs(keyword, field, start, size);
         }
 
         public IEnumerable<string> GetIDs(string keyword, int start, int size)
         {
             return _dal.GetIDs(keyword, start, size);
         }
-        public byte[] GetIDsM(string keyword, string type, int start, int size)
+        public byte[] GetIDsM(string keyword, string field, int start, int size)
         {
-            return _dal.GetIDsM(keyword, type, start, size);
+            return _dal.GetIDsM(keyword, field, start, size);
         }
         /// <summary>
         /// 获取总数
@@ -41,9 +41,9 @@ namespace WcfService
         /// <param name="keyword">关键字</param>
         /// <param name="type">类型：Enterprise,Products,Memo,Address,AdminName,WebName</param>
         /// <returns></returns>
-        public int GetCount(string keyword, string type)
+        public int GetCount(string keyword, string field)
         {
-            return _dal.GetCount(keyword, type);
+            return _dal.GetCount(keyword, field);
         }
     }
 }

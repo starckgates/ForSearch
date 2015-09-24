@@ -21,7 +21,7 @@ namespace WcfService
         /// <param name="start">开始位置</param>
         /// <param name="size">条数</param>
         /// <returns></returns>
-        List<MemberContact> GetList(string keyword, string type, int start, int size);
+        List<MemberContact> GetList(string keyword, string field, int start, int size);
 
         [OperationContract]
         /// <summary>
@@ -30,6 +30,6 @@ namespace WcfService
         /// <param name="keyword">关键字</param>
         /// <param name="type">类型：ID,MemberID,Linkman,Phone,Fax,Mobile,Email</param>
         /// <returns></returns>
-        int GetCount(string keyword, string type);
+        int GetCount(string keyword, string field);
     }
 }

@@ -9,10 +9,21 @@ namespace Model
     public class MemberTrack
     {
         private string _id;
-        private string _memberID;
-        private string _nextContactDate;
-        private string _nextAdminID;
+        private string _memberid;
+        private string _contactid;
+        private string _contactmethodid;
         private string _memo;
+        private string _addtime;
+        private string _nextcontactdate;
+        private string _adminid;
+        private string _contactname;
+        private string _contactmethoddetail;
+        private string _adminname;
+        private string _nextadminid;
+        private string _iscompleted;
+        private string _payid;
+        private string _nextadjustdate;
+        private string _isadjust;
 
         public string Id
         {
@@ -27,42 +38,42 @@ namespace Model
             }
         }
 
-        public string MemberID
+        public string Memberid
         {
             get
             {
-                return _memberID;
+                return _memberid;
             }
 
             set
             {
-                _memberID = value;
+                _memberid = value;
             }
         }
 
-        public string NextContactDate
+        public string Contactid
         {
             get
             {
-                return _nextContactDate;
+                return _contactid;
             }
 
             set
             {
-                _nextContactDate = value;
+                _contactid = value;
             }
         }
 
-        public string NextAdminID
+        public string Contactmethodid
         {
             get
             {
-                return _nextAdminID;
+                return _contactmethodid;
             }
 
             set
             {
-                _nextAdminID = value;
+                _contactmethodid = value;
             }
         }
 
@@ -78,5 +89,147 @@ namespace Model
                 _memo = value;
             }
         }
+
+        public string Addtime
+        {
+            get
+            {
+                return _addtime;
+            }
+
+            set
+            {
+                _addtime = value;
+            }
+        }
+        public string Nextcontactdate
+        {
+            get
+            {
+                return _nextcontactdate;
+            }
+
+            set
+            {
+                _nextcontactdate = value;
+            }
+        }
+        public string Adminid
+        {
+            get
+            {
+                return _adminid;
+            }
+
+            set
+            {
+                _adminid = value;
+            }
+        }
+
+        public string Contactname
+        {
+            get
+            {
+                return _contactname;
+            }
+
+            set
+            {
+                _contactname = value;
+            }
+        }
+
+        public string Contactmethoddetail
+        {
+            get
+            {
+                return _contactmethoddetail;
+            }
+
+            set
+            {
+                _contactmethoddetail = value;
+            }
+        }
+        public string Adminname
+        {
+            get
+            {
+                return _adminname;
+            }
+
+            set
+            {
+                _adminname = value;
+            }
+        }
+
+        public string Nextadminid
+        {
+            get
+            {
+                return _nextadminid;
+            }
+
+            set
+            {
+                _nextadminid = value;
+            }
+        }
+
+        public string Iscompleted
+        {
+            get
+            {
+                return _iscompleted;
+            }
+
+            set
+            {
+                _iscompleted = value;
+            }
+        }
+
+        public string Payid
+        {
+            get
+            {
+                return _payid;
+            }
+
+            set
+            {
+                _payid = value;
+            }
+        }
+
+        public string Nextadjustdate
+        {
+            get
+            {
+                return _nextadjustdate;
+            }
+
+            set
+            {
+                _nextadjustdate = value;
+            }
+        }
+
+        public string Isadjust
+        {
+            get
+            {
+                return _isadjust;
+            }
+
+            set
+            {
+                _isadjust = value;
+            }
+        }
+
+        
     }
 }

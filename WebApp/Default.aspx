@@ -29,8 +29,8 @@
         </div>
         <div class="menu">
             <asp:RadioButton ID="rb1" runat="server" GroupName="rblist" ValidationGroup="rblist" Text="卓创新闻" Checked="True" />
-            <asp:RadioButton ID="rb2" runat="server" GroupName="rblist" ValidationGroup="rblist" Text="CRMMember TEST" />
-            <asp:RadioButton ID="rb3" runat="server" GroupName="rblist" ValidationGroup="rblist" Text="找产品" />
+<%--            <asp:RadioButton ID="rb2" runat="server" GroupName="rblist" ValidationGroup="rblist" Text="CRMMember TEST" />
+            <asp:RadioButton ID="rb3" runat="server" GroupName="rblist" ValidationGroup="rblist" Text="找产品" />--%>
         </div>
         <div class="nums">卓创为您找到相关结果约：<asp:Label ID="lbCount" runat="server" Text="0"></asp:Label>个！</div>
         <div id="content">

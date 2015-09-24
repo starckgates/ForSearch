@@ -9,23 +9,17 @@ namespace DAL.Interface
 {
     public partial interface IMemberDal
     {
-        /// <summary>
-        /// 获取新闻列表
-        /// </summary>
-        /// <param name="keyword"></param>
-        /// <param name="start"></param>
-        /// <param name="size"></param>
-        /// <returns></returns>
         List<Member> GetList(string keyword, int start, int size);
-        List<Member> GetList(string keyword,string type, int start, int size);
-        List<Member> GetListByPrefix(string keyword, string type, int start, int size);
-        /// <summary>
-        /// 获取总数
-        /// </summary>
-        /// <param name="keyword"></param>
-        /// <returns></returns>
+        List<Member> GetList(string keyword,string field, int start, int size);
+        List<Member> GetListByPrefix(string keyword, string field, int start, int size);
+        List<Member> GetListByTrack(string keyword, string field, int start, int size, string country, string province, string city, string address, string memo, string classx, string trackType, string afterSales, out int em);
+        string GetListByTrack(Implement.MemberDal.SearchCondition sc, out int em);
+        string GetList(Implement.MemberDal.SearchCondition sc, out int em);
+
         int GetCount(string keyword);
-        int GetCount(string keyword,string type);
-        int GetCountByPrefix(string keyword, string type);
+        int GetCount(string keyword,string field);
+        int GetCountByPrefix(string keyword, string field);
+
+        int GetCount(DAL.Implement.MemberDal.SearchCondition sc);
     }
 }

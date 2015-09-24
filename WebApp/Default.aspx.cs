@@ -15,7 +15,7 @@ using WebApp.NewsBaseServ;
 
 namespace WebApp
 {
-    public partial class Default : System.Web.UI.Page
+    public partial class Default : PageBase
     {
          
         protected void Page_Load(object sender, EventArgs e)
@@ -48,16 +48,16 @@ namespace WebApp
                         rb1.Checked = true;
                         bindData();
                     }
-                    else if (rbstate == "rb2")
-                    {
-                        rb2.Checked = true;
-                        bindMData();
-                    }
-                    else if (rbstate == "rb3")
-                    {
-                        rb3.Checked = true;
-                        bindUrlData();
-                    }
+                    //else if (rbstate == "rb2")
+                    //{
+                    //    rb2.Checked = true;
+                    //    bindMData();
+                    //}
+                    //else if (rbstate == "rb3")
+                    //{
+                    //    rb3.Checked = true;
+                    //    bindUrlData();
+                    //}
                     
                 }
             }
@@ -115,45 +115,47 @@ namespace WebApp
                     Session["rbstate"] = "rb1";
                     Session["escount"] = count;
                     Session["kword"] = sstr;
-                    bindData();  
+                    bindData();
+                    Log log = new Log();
+                    log.InsertUserTrack(1);
                     Page.ClientScript.RegisterStartupScript(Page.GetType(), "myscript", "<script>shownews()</script>");
                 }
             }
-            else if (rb2.Checked == true)
-            {
-                if (string.IsNullOrEmpty(sstr))
-                {
-                    nullDate();
-                    lbCount.Text = "请在搜索框输入关键字";
-                }
-                else
-                {
-                    count = ims.GetCount(sstr);
-                    Session["rbstate"] = "rb2";
-                    Session["escount"] = count;
-                    Session["kword"] = sstr;
-                    Response.Redirect("Member.aspx", false);
-                    //bindMData();
-                    //Page.ClientScript.RegisterStartupScript(Page.GetType(), "myscript", "<script>showmem()</script>");
-                }
-            }
-            else if (rb3.Checked == true)
-            {
-                if (string.IsNullOrEmpty(sstr))
-                {
-                    nullDate();
-                    lbCount.Text = "请在搜索框输入关键字";
-                }
-                else
-                {
-                    count = iuns.GetCount(sstr);
-                    Session["rbstate"] = "rb3";
-                    Session["escount"] = count;
-                    Session["kword"] = sstr;
-                    bindUrlData();
-                    Page.ClientScript.RegisterStartupScript(Page.GetType(), "myscript", "<script>showurlname()</script>");
-                }
-            }
+            //else if (rb2.Checked == true)
+            //{
+            //    if (string.IsNullOrEmpty(sstr))
+            //    {
+            //        nullDate();
+            //        lbCount.Text = "请在搜索框输入关键字";
+            //    }
+            //    else
+            //    {
+            //        count = ims.GetCount(sstr);
+            //        Session["rbstate"] = "rb2";
+            //        Session["escount"] = count;
+            //        Session["kword"] = sstr;
+            //        Response.Redirect("Member.aspx", false);
+            //        //bindMData();
+            //        //Page.ClientScript.RegisterStartupScript(Page.GetType(), "myscript", "<script>showmem()</script>");
+            //    }
+            //}
+            //else if (rb3.Checked == true)
+            //{
+            //    if (string.IsNullOrEmpty(sstr))
+            //    {
+            //        nullDate();
+            //        lbCount.Text = "请在搜索框输入关键字";
+            //    }
+            //    else
+            //    {
+            //        count = iuns.GetCount(sstr);
+            //        Session["rbstate"] = "rb3";
+            //        Session["escount"] = count;
+            //        Session["kword"] = sstr;
+            //        bindUrlData();
+            //        Page.ClientScript.RegisterStartupScript(Page.GetType(), "myscript", "<script>showurlname()</script>");
+            //    }
+            //}
             Page.ClientScript.RegisterStartupScript(Page.GetType(), "myscript", "<script>hei()</script>");
         }
         /// <summary>
@@ -164,16 +166,16 @@ namespace WebApp
             List<NewsBase> list = new List<NewsBase>();
             RpNews.DataSource = list;
             RpNews.DataBind();
-            List<Member> mlist = new List<Member>();
-            RpCRM.DataSource = mlist;
-            RpCRM.DataBind();
-            List<URLName> ulist = new List<URLName>();
-            RpUrlName.DataSource = ulist;
-            RpUrlName.DataBind();
+            //List<Member> mlist = new List<Member>();
+            //RpCRM.DataSource = mlist;
+            //RpCRM.DataBind();
+            //List<URLName> ulist = new List<URLName>();
+            //RpUrlName.DataSource = ulist;
+            //RpUrlName.DataBind();
 
         }
         /// <summary>
-        /// 数据绑定
+        /// 新闻数据绑定
         /// </summary>
         private void bindData()
         {

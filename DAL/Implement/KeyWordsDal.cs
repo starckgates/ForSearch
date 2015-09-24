@@ -33,16 +33,16 @@ namespace DAL.Implement
         /// PrefixQuery查询
         /// </summary>
         /// <param name="keyword"></param>
-        /// <param name="type"></param>
+        /// <param name="field"></param>
         /// <param name="start"></param>
         /// <param name="size"></param>
         /// <returns></returns>
-        public List<KeyWords> GetList(string keyword, string type, int start, int size)
+        public List<KeyWords> GetList(string keyword, string field, int start, int size)
         {
 
             string indexname = ConfigurationManager.AppSettings["TagIndex"].ToString();
             string typename = ConfigurationManager.AppSettings["TagType"].ToString();
-            QueryContainer query = new PrefixQuery() { Field = type, Value = keyword };
+            QueryContainer query = new PrefixQuery() { Field = field, Value = keyword };
             var searchResults = Connect.GetSearchClient().Search<KeyWords>(s => s
                 .Index(indexname)
                 .Type(typename)
@@ -72,14 +72,14 @@ namespace DAL.Implement
         /// PrefixQuery  count
         /// </summary>
         /// <param name="keyword"></param>
-        /// <param name="type"></param>
+        /// <param name="field"></param>
         /// <returns></returns>
-        public int GetCount(string keyword,string type)
+        public int GetCount(string keyword,string field)
         {
             int count = 0;
             string indexname = ConfigurationManager.AppSettings["TagIndex"].ToString();
             string typename = ConfigurationManager.AppSettings["TagType"].ToString();
-            QueryContainer query = new PrefixQuery() { Field = type, Value = keyword };
+            QueryContainer query = new PrefixQuery() { Field = field, Value = keyword };
             //调用仅取数量方法
             var counts = Connect.GetSearchClient().Count<KeyWords>(s => s
                 .Index(indexname)

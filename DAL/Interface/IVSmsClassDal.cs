@@ -10,8 +10,8 @@ namespace DAL.Interface
     public partial interface IVSmsClassDal
     {
         List<VSmsClass> GetList(string keyword, int start, int size);
-        List<VSmsClass> GetList(string keyword, string type, int start, int size);
+        List<VSmsClass> GetList(string keyword, string field, int start, int size);
         int GetCount(string keyword);
-        int GetCount(string keyword, string type);
+        int GetCount(string keyword, string field);
     }
 }

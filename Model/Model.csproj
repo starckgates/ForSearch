@@ -53,6 +53,7 @@
     <Compile Include="SmsClass.cs" />
     <Compile Include="SmsProduct.cs" />
     <Compile Include="URLName.cs" />
+    <Compile Include="UserTrack.cs" />
     <Compile Include="VCommonProduct.cs" />
     <Compile Include="VSmsClass.cs" />
   </ItemGroup>

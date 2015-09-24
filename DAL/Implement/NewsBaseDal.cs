@@ -27,20 +27,18 @@ namespace DAL.Implement
             return eslist;
         }
 
-        public List<NewsBase> GetList(string keyword, string type,int start, int size)
+        public List<NewsBase> GetList(string keyword, string field, int start, int size)
         {
             string indexname = ConfigurationManager.AppSettings["IndexName"].ToString();
             string typename = ConfigurationManager.AppSettings["TypeName"].ToString();
-            if (string.IsNullOrEmpty(type))
-            { type = "_all";}
-            QueryContainer matchQuery = new MatchQuery() { Field = type, Query = keyword,Operator=Operator.And };
-            QueryContainer pcQuery = new HasChildQuery() { Query = matchQuery, Type = type };
+            if (string.IsNullOrEmpty(field))
+            { field = "_all";}
+            QueryContainer matchQuery = new MatchQuery() { Field = field, Query = keyword,Operator=Operator.And };
             //QueryContainer querystring = new QueryStringQuery() { Query = keyword, DefaultOperator = Operator.And };
             var searchResults = Connect.GetSearchClient().Search<NewsBase>(s => s
                 .Index(indexname)
                 .Type(typename)
-                .Query(pcQuery)
-                .FielddataFields(ff=>ff.Newsid)
+                .Query(matchQuery)
                 //.Fields("newsid")
                 .Sort(st => st.OnField(f => f.Newsid).Order(SortOrder.Descending))  /*按ID排序，id为数字，排序正常*/
                 .From(start)

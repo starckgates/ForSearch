@@ -19,6 +19,11 @@ namespace WcfService
         {
             return _dal.GetList(keyword, start, size);
         }
+
+        public List<NewsBase> GetList(string keyword, string field, int start, int size)
+        {
+            return _dal.GetList(keyword,field, start, size);
+        }
         public int GetCount(string keyword)
         {
             return _dal.GetCount(keyword);

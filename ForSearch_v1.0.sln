@@ -33,6 +33,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "项目文档", "项目文�
 		项目文档\第一阶段总结说明.txt = 项目文档\第一阶段总结说明.txt
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ESWebAPI", "ESWebAPI\ESWebAPI.csproj", "{0EDC5EEA-B8C6-428E-B0F9-67E3B3A01BC1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ESWebAPI.Tests", "ESWebAPI.Tests\ESWebAPI.Tests.csproj", "{78743C93-8868-4E9B-9307-2A868E25F055}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -75,6 +79,14 @@ Global
 		{E82D1F9C-085D-4DBD-B56B-86EDAE14E93C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E82D1F9C-085D-4DBD-B56B-86EDAE14E93C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E82D1F9C-085D-4DBD-B56B-86EDAE14E93C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0EDC5EEA-B8C6-428E-B0F9-67E3B3A01BC1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0EDC5EEA-B8C6-428E-B0F9-67E3B3A01BC1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0EDC5EEA-B8C6-428E-B0F9-67E3B3A01BC1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0EDC5EEA-B8C6-428E-B0F9-67E3B3A01BC1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{78743C93-8868-4E9B-9307-2A868E25F055}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{78743C93-8868-4E9B-9307-2A868E25F055}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{78743C93-8868-4E9B-9307-2A868E25F055}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{78743C93-8868-4E9B-9307-2A868E25F055}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -82,9 +94,10 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{A5C78BA2-BEA4-4C60-818C-89CDDE368134} = {D7624637-CEC0-4045-B02D-0E4187C7B4AD}
 		{E82D1F9C-085D-4DBD-B56B-86EDAE14E93C} = {D7624637-CEC0-4045-B02D-0E4187C7B4AD}
+		{78743C93-8868-4E9B-9307-2A868E25F055} = {D7624637-CEC0-4045-B02D-0E4187C7B4AD}
 	EndGlobalSection
 	GlobalSection(TeamFoundationVersionControl) = preSolution
-		SccNumberOfProjects = 10
+		SccNumberOfProjects = 12
 		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
 		SccTeamFoundationServer = http://192.168.7.50:8080/tfs/tech
 		SccLocalPath0 = .
@@ -117,5 +130,12 @@ Global
 		SccProjectTopLevelParentUniqueName9 = ForSearch_v1.0.sln
 		SccProjectName9 = WebAndLoadTestProject
 		SccLocalPath9 = WebAndLoadTestProject
+		SccProjectUniqueName10 = ESWebAPI\\ESWebAPI.csproj
+		SccProjectName10 = ESWebAPI
+		SccLocalPath10 = ESWebAPI
+		SccProjectUniqueName11 = ESWebAPI.Tests\\ESWebAPI.Tests.csproj
+		SccProjectTopLevelParentUniqueName11 = ForSearch_v1.0.sln
+		SccProjectName11 = ESWebAPI.Tests
+		SccLocalPath11 = ESWebAPI.Tests
 	EndGlobalSection
 EndGlobal

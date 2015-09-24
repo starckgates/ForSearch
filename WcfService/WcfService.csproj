@@ -78,7 +78,7 @@
     <Content Include="js\jquery\jquery-1.11.0.js" />
     <Content Include="js\jquery\jquery-1.11.0.min.js" />
     <Content Include="MemberGenServ.svc" />
-    <Content Include="MemberTrackServ.svc" />
+    <Content Include="MemberByTrackServ.svc" />
     <Content Include="style\bootstrap\bootstrap-theme.css" />
     <Content Include="style\bootstrap\bootstrap-theme.min.css" />
     <Content Include="style\bootstrap\bootstrap.css" />
@@ -110,7 +110,7 @@
     <Compile Include="IMemberContactServ.cs" />
     <Compile Include="IMemberGenServ.cs" />
     <Compile Include="IMemberServ.cs" />
-    <Compile Include="IMemberTrackServ.cs" />
+    <Compile Include="IMemberByTrackServ.cs" />
     <Compile Include="INewsBaseServ.cs" />
     <Compile Include="ISmsClassServ.cs" />
     <Compile Include="IVCommonProductServ.cs" />
@@ -124,8 +124,8 @@
     <Compile Include="MemberServ.svc.cs">
       <DependentUpon>MemberServ.svc</DependentUpon>
     </Compile>
-    <Compile Include="MemberTrackServ.svc.cs">
-      <DependentUpon>MemberTrackServ.svc</DependentUpon>
+    <Compile Include="MemberByTrackServ.svc.cs">
+      <DependentUpon>MemberByTrackServ.svc</DependentUpon>
     </Compile>
     <Compile Include="NewsBaseServ.svc.cs">
       <DependentUpon>NewsBaseServ.svc</DependentUpon>

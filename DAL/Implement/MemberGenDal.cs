@@ -21,17 +21,18 @@ namespace DAL.Implement
             return GetCount(keyword, "");
         }
 
-        public int GetCount(string keyword, string type)
+        public int GetCount(string keyword, string field)
         {
             int count = 0;
             string indexname = ConfigurationManager.AppSettings["CRMIndex"].ToString();
-            string typename = ConfigurationManager.AppSettings["CRMType"].ToString();
+            string typename = ConfigurationManager.AppSettings["CRMMemberType"].ToString();
             //QueryContainer query = new QueryStringQuery() { Query = keyword, DefaultOperator = Operator.Or, DefaultField = type };
             //QueryContainer termQuery = new TermQuery { Field = type, Value = keyword };
             //QueryContainer prefixQuery = new PrefixQuery { Field = type, Value = keyword };
-            if (string.IsNullOrEmpty(type))
-            { type = "_all"; }
-            QueryContainer matchQuery = new MatchQuery() { Field = type, Query = keyword, Operator = Operator.And };
+            if (string.IsNullOrEmpty(field))
+            { field = "_all"; }
+            else { field = field.ToLower(); }
+            QueryContainer matchQuery = new MatchQuery() { Field = field, Query = keyword, Operator = Operator.And };
             //调用仅取数量方法
             var counts = Connect.GetSearchClient().Count<Member>(s => s
                 .Index(indexname)
@@ -47,16 +48,17 @@ namespace DAL.Implement
             return GetIDs(keyword,"", start, size);
         }
 
-        public IEnumerable<string>  GetIDs(string keyword, string type, int start, int size)
+        public IEnumerable<string>  GetIDs(string keyword, string field, int start, int size)
         {
             string indexname = ConfigurationManager.AppSettings["CRMIndex"].ToString();
-            string typename = ConfigurationManager.AppSettings["CRMType"].ToString();
+            string typename = ConfigurationManager.AppSettings["CRMMemberType"].ToString();
             //QueryContainer query = new QueryStringQuery() { Query = keyword, DefaultOperator = Operator.Or, DefaultField = type};
             //QueryContainer termQuery = new TermQuery { Field = type, Value = keyword };
             //QueryContainer prefixQuery = new PrefixQuery { Field = type, Value = keyword };
-            if (string.IsNullOrEmpty(type))
-            { type = "_all"; }
-            QueryContainer matchQuery = new MatchQuery() { Field = type, Query = keyword, Operator = Operator.And };
+            if (string.IsNullOrEmpty(field))
+            { field = "_all"; }
+            else { field = field.ToLower(); }
+            QueryContainer matchQuery = new MatchQuery() { Field = field, Query = keyword, Operator = Operator.And };
             var searchResults = Connect.GetSearchClient().Search<Member>(s => s
                 .Index(indexname)
                 .Type(typename)
@@ -75,9 +77,9 @@ namespace DAL.Implement
             return eslist;
             //return eslist.Select(s=>s.Id);
         }
-        public byte[] GetIDsM(string keyword, string type, int start, int size)
+        public byte[] GetIDsM(string keyword, string field, int start, int size)
         {
-            return GZip.Compress(GZip.SerializeObject(GetIDs(keyword, type, start, size).ToList()));
+            return GZip.Compress(GZip.SerializeObject(GetIDs(keyword, field, start, size).ToList()));
         }
 
     }

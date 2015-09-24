@@ -17,14 +17,14 @@ namespace DAL.Interface
         /// <param name="size"></param>
         /// <returns></returns>
         IEnumerable<string> GetIDs(string keyword, int start, int size);
-        IEnumerable<string> GetIDs(string keyword, string type, int start, int size);
-        byte[] GetIDsM(string keyword, string type, int start, int size);
+        IEnumerable<string> GetIDs(string keyword, string field, int start, int size);
+        byte[] GetIDsM(string keyword, string field, int start, int size);
         /// <summary>
         /// 获取总数
         /// </summary>
         /// <param name="keyword"></param>
         /// <returns></returns>
         int GetCount(string keyword);
-        int GetCount(string keyword, string type);
+        int GetCount(string keyword, string field);
     }
 }

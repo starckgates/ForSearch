@@ -10,27 +10,26 @@ namespace Model
     public class Member
     {
         private string _id;
-        private string _addTime;
+        private string _addtime;
         private string _enterprise;
         private string _country;
         private string _province;
         private string _city;
-        private string _area;
         private string _address;
-        private string _zipCode;
-        private string _homeURL;
-        private string _webName;
-        private string _enterpriseIntro;
-        private string _adminID;
-        private string _entTypeID;
-        private string _tracktypeID;
-        private string _classID;
-        private string _sourceID;
-        private string _matDegreeID;
-        private string _startDate;
-        private string _endDate;
-        private string _nextContactDate;
-        private string _lastContactTime;
+        private string _zipcode;
+        private string _homeurl;
+        private string _webname;
+        private string _enterpriseintro;
+        private string _adminid;
+        private string _enttypeid;
+        private string _tracktypeid;
+        private string _classid;
+        private string _sourceid;
+        private string _matdegreeid;
+        private string _startdate;
+        private string _enddate;
+        private string _nextcontactdate;
+        private string _lastcontacttime;
         private string _products;
         private string _class1;
         private string _class2;
@@ -42,33 +41,33 @@ namespace Model
         private string _class8;
         private string _class9;
         private string _class10;
-        private string _isPub;
-        private string _isDel;
-        private string _meetingID;
-        private string _allocateContinueDate;
-        private string _siteClass;
-        private string _reVisitAdminID;
-        private string _onTrack;
-        private string _idFormal;
-        private string _afterSalesID;
-        private string _adminName;
-        private string _masterLinkMan;
-        private string _masterPhone;
+        private string _ispub;
+        private string _isdel;
+        private string _meetingid;
+        private string _allocatecontinuedate;
+        private string _siteclass;
+        private string _revisitadminid;
+        private string _ontrack;
+        private string _idformal;
+        private string _aftersalesid;
+        private string _adminname;
+        private string _masterlinkman;
+        private string _masterphone;
         private string _version;
         private string _memo;
-        private string _zzAdminID;
-        private string _weightingSort;
-        private string _meetingLastContactTime;
-        private string _zZTrack;
-        private string _trackReason;
-        private string _isStar;
-        private string _trackReasonDate;
-        private string _limitDays;
-        private string _updateDaysAdmin;
-        private string _updateTrackType;
-        private string _continueAdminID;
-        private string _isTaxPayer;
-        private string _isCTA;
+        private string _zzadminid;
+        private string _weightingsort;
+        private string _meetinglastcontacttime;
+        private string _zztrack;
+        private string _trackreason;
+        private string _isstar;
+        private string _trackreasondate;
+        private string _limitdays;
+        private string _updatedaysadmin;
+        private string _updatetracktype;
+        private string _continueadminid;
+        private string _istaxpayer;
+        private string _iscta;
 
         public string Id
         {
@@ -83,16 +82,16 @@ namespace Model
             }
         }
 
-        public string AddTime
+        public string Addtime
         {
             get
             {
-                return _addTime;
+                return _addtime;
             }
 
             set
             {
-                _addTime = value;
+                _addtime = value;
             }
         }
 
@@ -148,19 +147,6 @@ namespace Model
             }
         }
 
-        public string Area
-        {
-            get
-            {
-                return _area;
-            }
-
-            set
-            {
-                _area = value;
-            }
-        }
-
         public string Address
         {
             get
@@ -174,198 +160,183 @@ namespace Model
             }
         }
 
-        public string ZipCode
+        public string Zipcode
         {
             get
             {
-                return _zipCode;
+                return _zipcode;
             }
 
             set
             {
-                _zipCode = value;
+                _zipcode = value;
+            }
+        }
+        public string Homeurl
+        {
+            get
+            {
+                return _homeurl;
+            }
+
+            set
+            {
+                _homeurl = value;
             }
         }
 
-        public string HomeURL
+        public string Webname
         {
             get
             {
-                return _homeURL;
+                return _webname;
             }
 
             set
             {
-                _homeURL = value;
+                _webname = value;
             }
         }
 
-        public string WebName
+        public string Enterpriseintro
         {
             get
             {
-                return _webName;
+                return _enterpriseintro;
             }
 
             set
             {
-                _webName = value;
+                _enterpriseintro = value;
+            }
+        }
+        public string Adminid
+        {
+            get
+            {
+                return _adminid;
+            }
+
+            set
+            {
+                _adminid = value;
             }
         }
 
-        public string EnterpriseIntro
+        public string Enttypeid
         {
             get
             {
-                return _enterpriseIntro;
+                return _enttypeid;
             }
 
             set
             {
-                _enterpriseIntro = value;
+                _enttypeid = value;
             }
         }
 
-        public string AdminID
+        public string Tracktypeid
         {
             get
             {
-                return _adminID;
+                return _tracktypeid;
             }
 
             set
             {
-                _adminID = value;
+                _tracktypeid = value;
             }
         }
 
-        public string EntTypeID
+        public string Classid
         {
             get
             {
-                return _entTypeID;
+                return _classid;
             }
 
             set
             {
-                _entTypeID = value;
+                _classid = value;
             }
         }
 
-        public string TracktypeID
+        public string Sourceid
         {
             get
             {
-                return _tracktypeID;
+                return _sourceid;
             }
 
             set
             {
-                _tracktypeID = value;
+                _sourceid = value;
             }
         }
 
-        public string ClassID
+        public string Matdegreeid
         {
             get
             {
-                return _classID;
+                return _matdegreeid;
             }
 
             set
             {
-                _classID = value;
+                _matdegreeid = value;
             }
         }
 
-        public string SourceID
+        public string Startdate
         {
             get
             {
-                return _sourceID;
+                return _startdate;
             }
 
             set
             {
-                _sourceID = value;
+                _startdate = value;
             }
         }
 
-        public string MatDegreeID
+        public string Enddate
         {
             get
             {
-                return _matDegreeID;
+                return _enddate;
             }
 
             set
             {
-                _matDegreeID = value;
+                _enddate = value;
             }
         }
 
-        public string StartDate
+        public string Nextcontactdate
         {
             get
             {
-                return _startDate;
+                return _nextcontactdate;
             }
 
             set
             {
-                _startDate = value;
+                _nextcontactdate = value;
             }
         }
 
-        public string EndDate
+        public string Lastcontacttime
         {
             get
             {
-                return _endDate;
+                return _lastcontacttime;
             }
 
             set
             {
-                _endDate = value;
-            }
-        }
-
-        public string NextContactDate
-        {
-            get
-            {
-                return _nextContactDate;
-            }
-
-            set
-            {
-                _nextContactDate = value;
-            }
-        }
-
-        public string LastContactTime
-        {
-            get
-            {
-                return _lastContactTime;
-            }
-
-            set
-            {
-                _lastContactTime = value;
-            }
-        }
-
-        public string Products
-        {
-            get
-            {
-                return _products;
-            }
-
-            set
-            {
-                _products = value;
+                _lastcontacttime = value;
             }
         }
 
@@ -499,159 +470,159 @@ namespace Model
             }
         }
 
-        public string IsPub
+        public string Ispub
         {
             get
             {
-                return _isPub;
+                return _ispub;
             }
 
             set
             {
-                _isPub = value;
+                _ispub = value;
             }
         }
 
-        public string IsDel
+        public string Isdel
         {
             get
             {
-                return _isDel;
+                return _isdel;
             }
 
             set
             {
-                _isDel = value;
+                _isdel = value;
             }
         }
 
-        public string MeetingID
+        public string Meetingid
         {
             get
             {
-                return _meetingID;
+                return _meetingid;
             }
 
             set
             {
-                _meetingID = value;
+                _meetingid = value;
             }
         }
 
-        public string AllocateContinueDate
+        public string Allocatecontinuedate
         {
             get
             {
-                return _allocateContinueDate;
+                return _allocatecontinuedate;
             }
 
             set
             {
-                _allocateContinueDate = value;
+                _allocatecontinuedate = value;
             }
         }
 
-        public string SiteClass
+        public string Siteclass
         {
             get
             {
-                return _siteClass;
+                return _siteclass;
             }
 
             set
             {
-                _siteClass = value;
+                _siteclass = value;
             }
         }
 
-        public string ReVisitAdminID
+        public string Revisitadminid
         {
             get
             {
-                return _reVisitAdminID;
+                return _revisitadminid;
             }
 
             set
             {
-                _reVisitAdminID = value;
+                _revisitadminid = value;
             }
         }
 
-        public string OnTrack
+        public string Ontrack
         {
             get
             {
-                return _onTrack;
+                return _ontrack;
             }
 
             set
             {
-                _onTrack = value;
+                _ontrack = value;
             }
         }
 
-        public string IdFormal
+        public string Idformal
         {
             get
             {
-                return _idFormal;
+                return _idformal;
             }
 
             set
             {
-                _idFormal = value;
+                _idformal = value;
             }
         }
 
-        public string AfterSalesID
+        public string Aftersalesid
         {
             get
             {
-                return _afterSalesID;
+                return _aftersalesid;
             }
 
             set
             {
-                _afterSalesID = value;
+                _aftersalesid = value;
             }
         }
 
-        public string AdminName
+        public string Adminname
         {
             get
             {
-                return _adminName;
+                return _adminname;
             }
 
             set
             {
-                _adminName = value;
+                _adminname = value;
             }
         }
 
-        public string MasterLinkMan
+        public string Masterlinkman
         {
             get
             {
-                return _masterLinkMan;
+                return _masterlinkman;
             }
 
             set
             {
-                _masterLinkMan = value;
+                _masterlinkman = value;
             }
         }
 
-        public string MasterPhone
+        public string Masterphone
         {
             get
             {
-                return _masterPhone;
+                return _masterphone;
             }
 
             set
             {
-                _masterPhone = value;
+                _masterphone = value;
             }
         }
 
@@ -681,173 +652,187 @@ namespace Model
             }
         }
 
-        public string zzAdminID
+        public string Zzadminid
         {
             get
             {
-                return _zzAdminID;
+                return _zzadminid;
             }
 
             set
             {
-                _zzAdminID = value;
+                _zzadminid = value;
             }
         }
 
-        public string WeightingSort
+        public string Weightingsort
         {
             get
             {
-                return _weightingSort;
+                return _weightingsort;
             }
 
             set
             {
-                _weightingSort = value;
+                _weightingsort = value;
             }
         }
 
-        public string MeetingLastContactTime
+        public string Meetinglastcontacttime
         {
             get
             {
-                return _meetingLastContactTime;
+                return _meetinglastcontacttime;
             }
 
             set
             {
-                _meetingLastContactTime = value;
+                _meetinglastcontacttime = value;
             }
         }
 
-        public string ZZTrack
+        public string Zztrack
         {
             get
             {
-                return _zZTrack;
+                return _zztrack;
             }
 
             set
             {
-                _zZTrack = value;
+                _zztrack = value;
             }
         }
 
-        public string TrackReason
+        public string Trackreason
         {
             get
             {
-                return _trackReason;
+                return _trackreason;
             }
 
             set
             {
-                _trackReason = value;
+                _trackreason = value;
             }
         }
 
-        public string IsStar
+        public string Isstar
         {
             get
             {
-                return _isStar;
+                return _isstar;
             }
 
             set
             {
-                _isStar = value;
+                _isstar = value;
             }
         }
 
-        public string TrackReasonDate
+        public string Trackreasondate
         {
             get
             {
-                return _trackReasonDate;
+                return _trackreasondate;
             }
 
             set
             {
-                _trackReasonDate = value;
+                _trackreasondate = value;
             }
         }
 
-        public string LimitDays
+        public string Limitdays
         {
             get
             {
-                return _limitDays;
+                return _limitdays;
             }
 
             set
             {
-                _limitDays = value;
+                _limitdays = value;
             }
         }
 
-        public string UpdateDaysAdmin
+        public string Updatedaysadmin
         {
             get
             {
-                return _updateDaysAdmin;
+                return _updatedaysadmin;
             }
 
             set
             {
-                _updateDaysAdmin = value;
+                _updatedaysadmin = value;
             }
         }
 
-        public string UpdateTrackType
+        public string Updatetracktype
         {
             get
             {
-                return _updateTrackType;
+                return _updatetracktype;
             }
 
             set
             {
-                _updateTrackType = value;
+                _updatetracktype = value;
             }
         }
 
-        public string ContinueAdminID
+        public string Continueadminid
         {
             get
             {
-                return _continueAdminID;
+                return _continueadminid;
             }
 
             set
             {
-                _continueAdminID = value;
+                _continueadminid = value;
             }
         }
 
-        public string IsTaxPayer
+        public string Istaxpayer
         {
             get
             {
-                return _isTaxPayer;
+                return _istaxpayer;
             }
 
             set
             {
-                _isTaxPayer = value;
+                _istaxpayer = value;
             }
         }
 
-        public string IsCTA
+        public string Iscta
         {
             get
             {
-                return _isCTA;
+                return _iscta;
             }
 
             set
             {
-                _isCTA = value;
+                _iscta = value;
             }
         }
+
+        public string Products
+        {
+            get
+            {
+                return _products;
+            }
+
+            set
+            {
+                _products = value;
+            }
+        }
+
     }
 }
