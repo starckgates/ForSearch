@@ -11,6 +11,7 @@ namespace ESWebAPI
         {
             // Web API 配置和服务
 
+
             // Web API 路由
             config.MapHttpAttributeRoutes();
 
@@ -19,6 +20,9 @@ namespace ESWebAPI
                 routeTemplate: "api/{controller}/{action}/{id}",
                 defaults: new { id = RouteParameter.Optional }
             );
+            // Remove the XML formatter
+            config.Formatters.Remove(config.Formatters.XmlFormatter);
+
         }
     }
 }

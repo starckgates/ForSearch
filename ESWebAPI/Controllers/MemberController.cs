@@ -39,6 +39,10 @@ namespace ESWebAPI.Controllers
             public string tracktype { get; set; }
             public string aftersales { get; set; }
             #endregion
+            #region 验证签名
+            public string timestamp { get; set; }
+            public string sign { get; set; }
+            #endregion
         }
         #endregion
         [HttpGet]
@@ -63,14 +67,17 @@ namespace ESWebAPI.Controllers
             sc.keyword = model.keyword;
             sc.memo = model.memo;
             sc.province = model.province;
-            sc.size = model.size;
+            sc.size = model.size < 30 ? model.size : 30;
             sc.start = model.start;
             sc.tracktype = model.tracktype;
-            string str = _dal.GetList(sc, out em);
+            string str = "[]";
+            if (ValidateSign(model.keyword, model.flag, model.field, Convert.ToDateTime(model.timestamp), model.sign))
+            {
+                str = _dal.GetList(sc, out em);
+            }
+            //string str = _dal.GetList(sc, out em);
             HttpResponseMessage result = new HttpResponseMessage { Content = new StringContent(str, Encoding.GetEncoding("UTF-8"), "application/json") };
             return result;
-
-            //return _dal.GetList(model, out em);
         }
         [HttpGet]
         public HttpResponseMessage getCount(SearchCondition model)
@@ -86,15 +93,88 @@ namespace ESWebAPI.Controllers
             sc.keyword = model.keyword;
             sc.memo = model.memo;
             sc.province = model.province;
-            sc.size = model.size;
-            sc.start = model.start;
             sc.tracktype = model.tracktype;
-            int str = _dal.GetCount(sc);
+            int str = 0;
+            if (ValidateSign(model.keyword, model.flag, model.field,Convert.ToDateTime(model.timestamp),model.sign))
+            {
+                str = _dal.GetCount(sc);
+            }
+            //int str = _dal.GetCount(sc);
             HttpResponseMessage result = new HttpResponseMessage { Content = new StringContent(str.ToString(), Encoding.GetEncoding("UTF-8"), "application/json") };
             return result;
-
-            //return _dal.GetList(model, out em);
         }
+
+        private string CreateSignature(string keyword,string flag,string field,DateTime timestamp)
+        {
+            string sign = "";
+            try
+            {
+                TimeSpan toNow = DateTime.Now.Subtract(timestamp);
+                string nowTS = toNow.TotalSeconds.ToString();
+                int ts = 0;
+                if (toNow.TotalSeconds != 0)
+                {
+                    ts = int.Parse(nowTS.Substring(0, nowTS.IndexOf('.')));
+                }
+                if (Math.Abs(ts) < 120)
+                {
+                    sign = ("keyword=" + keyword + "&flag=" + flag + "&field=" + field + "&timestamp=" + timestamp.ToString("yyyy-MM-dd HH:mm:ss")).ToUpper();
+                    sign = common.GetMD5.GetMD5HashFromStr(sign);
+                }
+            }
+            catch (Exception)
+            {
+                sign = "";
+            }
+            return sign;
+        }
+        private bool ValidateSign(string keyword, string flag, string field, DateTime timestamp,string sign)
+        {
+            try
+            {
+                string str = CreateSignature(keyword, flag, field, timestamp);
+                if (!string.IsNullOrEmpty(str))
+                {
+                    return str.Equals(sign);
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
+        //private bool ValidateSign(string sign)
+        //{
+        //    try
+        //    {
+        //        string SID = "RMD4RIYBE6YM0K8";
+        //        string unSID = UnSCISecret(sign);
+        //        return SID.Equals(unSID);
+        //    }
+        //    catch
+        //    {
+        //        return false;
+        //    }
+        //}
+
+        //private string UnSCISecret(string sign)
+        //{
+        //    StringBuilder _UnSecretSign = new StringBuilder("");
+        //    string _position = "213131231242132";
+        //    string _temp_sign = sign;
+        //    for (int i = 0; i < _position.Length; i++)
+        //    {
+        //        _temp_sign = _temp_sign.Substring(int.Parse(_position[i].ToString()));
+        //        _UnSecretSign.Append(_temp_sign[0]);
+        //        _temp_sign = _temp_sign.Substring(1);
+        //    }
+        //    return _UnSecretSign.ToString();
+        //}
+
 
     }
 

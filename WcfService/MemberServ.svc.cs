@@ -25,7 +25,6 @@ namespace WcfService
         /// <returns></returns>
         public List<Member> GetList(string keyword, string field, int start, int size)
         {
-            //return _dal.GetList(keyword, field, start, size);
             return _dal.GetList(keyword, field, start, size);
         }
 
