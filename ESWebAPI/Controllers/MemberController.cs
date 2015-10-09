@@ -8,10 +8,29 @@ using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 using System.Web.Http;
+using System.Web.Http.Controllers;
+using System.Web.Http.Filters;
 using System.Web.Http.ModelBinding;
 
 namespace ESWebAPI.Controllers
 {
+    public class RequireHttpsAttribute : AuthorizationFilterAttribute
+    {
+        public override void OnAuthorization(HttpActionContext actionContext)
+        {
+            if (actionContext.Request.RequestUri.Scheme != Uri.UriSchemeHttps)
+            {
+                actionContext.Response = new HttpResponseMessage(System.Net.HttpStatusCode.Forbidden)
+                {
+                    ReasonPhrase = "HTTPS Required"
+                };
+            }
+            else
+            {
+                base.OnAuthorization(actionContext);
+            }
+        }
+    }
     [RoutePrefix("api/member")]
     public class MemberController : ApiController
     {
@@ -53,6 +72,7 @@ namespace ESWebAPI.Controllers
         }
 
         [HttpGet]
+        //[RequireHttps]
         public HttpResponseMessage getme(SearchCondition model)
         {
             int em = 0;
@@ -73,13 +93,14 @@ namespace ESWebAPI.Controllers
             string str = "[]";
             if (ValidateSign(model.keyword, model.flag, model.field, Convert.ToDateTime(model.timestamp), model.sign))
             {
-                str = _dal.GetList(sc, out em);
+                str = _dal.GetList(sc, out em).Replace("\r",string.Empty).Replace("\n",string.Empty);
             }
             //string str = _dal.GetList(sc, out em);
             HttpResponseMessage result = new HttpResponseMessage { Content = new StringContent(str, Encoding.GetEncoding("UTF-8"), "application/json") };
             return result;
         }
         [HttpGet]
+        //[RequireHttps]
         public HttpResponseMessage getCount(SearchCondition model)
         {
             DAL.Implement.MemberDal.SearchCondition sc = new MemberDal.SearchCondition();
@@ -147,35 +168,6 @@ namespace ESWebAPI.Controllers
                 return false;
             }
         }
-        //private bool ValidateSign(string sign)
-        //{
-        //    try
-        //    {
-        //        string SID = "RMD4RIYBE6YM0K8";
-        //        string unSID = UnSCISecret(sign);
-        //        return SID.Equals(unSID);
-        //    }
-        //    catch
-        //    {
-        //        return false;
-        //    }
-        //}
-
-        //private string UnSCISecret(string sign)
-        //{
-        //    StringBuilder _UnSecretSign = new StringBuilder("");
-        //    string _position = "213131231242132";
-        //    string _temp_sign = sign;
-        //    for (int i = 0; i < _position.Length; i++)
-        //    {
-        //        _temp_sign = _temp_sign.Substring(int.Parse(_position[i].ToString()));
-        //        _UnSecretSign.Append(_temp_sign[0]);
-        //        _temp_sign = _temp_sign.Substring(1);
-        //    }
-        //    return _UnSecretSign.ToString();
-        //}
-
-
     }
 
 }
